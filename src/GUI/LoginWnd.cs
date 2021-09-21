@@ -29,6 +29,7 @@ namespace ScriptByteLoader.GUI
         }
 
 
+        //login function not added and some other stuff :3
         private void passwordtextbox_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
