@@ -10,42 +10,35 @@ namespace ScriptByteLoader.Handler
 {
     public static class Security
     {
-     
-    //not posting my backend code for now, but i will post my update function 
-       
-       public static void CheckForUpdate()
+
+        //not working, will fix later
+        public static void GrabUserVars()
         {
             try
             {
-                WebClient client = new WebClient();
-                if (client.DownloadString("find my backend html file yourself :)").Contains("1.0"))
-                {
-
+                if (Auth.User.ID != null || Auth.User.ID != null || Auth.User.ID != null)
+                { 
+                    return;
                 }
-                else
+                if (Auth.User.ID.Length < 1|| Auth.User.HWID.Length < 1 || Auth.User.IP.Length < 1)
                 {
-                    DialogResult dialogResult = MessageBox.Show($"There is an update for {Application.ProductName}", Application.ProductName, MessageBoxButtons.YesNo);
-                    if (dialogResult == DialogResult.Yes)
-                    {
-                        MessageBox.Show("yes");
-                    }
-                    else if (dialogResult == DialogResult.No)
-                    {
-                        MessageBox.Show("no");
-                    }
+                    Data.Breached = true;
+                    return;
                 }
             }
-            catch (Exception ex)
+            catch
             {
-                MessageBox.Show(ex.Message, Application.ProductName);
+                return;
             }
         }
-        
+
         public static void GrabLogin()
         {
-            GrabUserVars(); //not including my function to grab user variables.. basically if you aren't logged in Data.Breached gets set to true :3
+            GrabUserVars();
             if (Data.Breached)
             {
                 Environment.Exit(0);
             }
         }
+    }
+}
