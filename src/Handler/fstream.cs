@@ -22,11 +22,12 @@ namespace ScriptByteLoader.Handler
                 if (!exists)
                 {
                     System.IO.Directory.CreateDirectory(Path);
-                    MessageBox.Show($"ScriptByteLoader directory not found, making directory for {Application.ProductName}", Application.ProductName);
+                    Win32.Update($"ScriptByteLoader directory not found, making directory for {Application.ProductName}");
                 }
             }
             catch (Exception ex)
             {
+                Win32.Error();
                 MessageBox.Show(ex.Message);
             }
         }
@@ -75,6 +76,7 @@ namespace ScriptByteLoader.Handler
             }
             catch (Exception ex)
             {
+                Win32.Error();
                 MessageBox.Show(ex.Message, Application.ProductName);
             }
         }
@@ -88,6 +90,7 @@ namespace ScriptByteLoader.Handler
             }
             catch (Exception ex)
             {
+                Win32.Error();
                 MessageBox.Show(ex.Message, Application.ProductName);
             }
         }

@@ -28,10 +28,15 @@ namespace ScriptByteLoader.Handler
             Console.Title = $"{Application.ProductName} Debug Console - {Application.ProductVersion} user - {Auth.User.Username} expires - {Auth.User.Expiry}";
         }
 
-        //self explanatory 
+        //self explanatory
         public static void Error()
         {
             Console.WriteLine(Data.error);
+        }
+
+        public static void Update(string message)
+        {
+            Console.Title = message;
         }
     }
 }
